@@ -9,6 +9,8 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [cartOpened, setCartOpened] = React.useState(false);
 
+  const [cartItems, setCartItems] = React.useState([]);
+
   useEffect(() => {
     fetch('https://666889f4f53957909ff86aca.mockapi.io/items')
       .then((response) => {
@@ -19,10 +21,22 @@ function App() {
       });
   }, []);
 
+  const onAddToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
+
+  const onClickRemoveItem = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
     <div className="wrapper">
       {cartOpened ? (
-        <Drawer onClickCloseCart={() => setCartOpened(false)}></Drawer>
+        <Drawer
+          items={cartItems}
+          onClickCloseCart={() => setCartOpened(false)}
+          onClickRemoveItem={onClickRemoveItem}
+        ></Drawer>
       ) : null}
       <Header onClickCart={() => setCartOpened(true)}></Header>
 
@@ -38,9 +52,12 @@ function App() {
         <div className="sneakers">
           {items.map((item) => (
             <Card
-              title={item.name}
+              key={item.id}
+              id={item.id}
+              name={item.name}
               price={item.price}
               imageUrl={item.imageUrl}
+              onPlus={onAddToCart}
             ></Card>
           ))}
         </div>

@@ -1,16 +1,18 @@
 import styles from './CardStyle.scss';
 import React from 'react';
 
-const Card = ({ title, price, imageUrl, onPlus, onClickFavorite }) => {
+const Card = ({ id, name, price, imageUrl, onPlus, onClickFavorite }) => {
   const [isAdded, setIsAdded] = React.useState(false);
 
   const onClickPlus = () => {
     setIsAdded(!isAdded);
+    onPlus({ id, name, price, imageUrl });
   };
 
   return (
     <div className="card">
       <img
+        key={id}
         onClick={onClickFavorite}
         className="unliked"
         width={32}
@@ -19,7 +21,7 @@ const Card = ({ title, price, imageUrl, onPlus, onClickFavorite }) => {
         alt="unliked"
       ></img>
       <img width={133} height={122} src={imageUrl} alt="img"></img>
-      <p>{title}</p>
+      <p>{name}</p>
       <div className="card-price">
         <div>
           <span>Цена</span>

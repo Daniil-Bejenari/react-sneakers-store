@@ -1,4 +1,4 @@
-const Drawer = ({ onClickCloseCart }) => {
+const Drawer = ({ onClickCloseCart, onClickRemoveItem, items = [] }) => {
   return (
     <div className="overlay">
       <div className="drawer">
@@ -12,20 +12,25 @@ const Drawer = ({ onClickCloseCart }) => {
         </div>
 
         <div className="items">
-          <div className="cartItem">
-            <img
-              width={70}
-              height={70}
-              src="/img/sneakers/1.jpg"
-              alt="sneakers"
-            ></img>
-            <div className="cartItem-info">
-              <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-              <b>12 999 руб.</b>
+          {items.map((obj) => (
+            <div className="cartItem">
+              <img
+                width={70}
+                height={70}
+                src={obj.imageUrl}
+                alt="sneakers"
+              ></img>
+              <div className="cartItem-info">
+                <p>{obj.name}</p>
+                <b>{obj.price} руб.</b>
+              </div>
+              <img
+                onClick={() => onClickRemoveItem(obj.id)}
+                src="/img/btn-removed.svg"
+                alt="sneakers"
+              ></img>
             </div>
-
-            <img src="/img/btn-removed.svg" alt="sneakers"></img>
-          </div>
+          ))}
         </div>
 
         <div className="final-pirce">
@@ -51,59 +56,3 @@ const Drawer = ({ onClickCloseCart }) => {
 };
 
 export default Drawer;
-<div className="drawer">
-  <div className="drawer-header">
-    <h3>Корзина</h3>
-    <img src="/img/btn-removed.svg" alt="sneakers"></img>
-  </div>
-
-  <div className="items">
-    <div className="cartItem">
-      <img
-        width={70}
-        height={70}
-        src="/img/sneakers/1.jpg"
-        alt="sneakers"
-      ></img>
-      <div className="cartItem-info">
-        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-        <b>12 999 руб.</b>
-      </div>
-
-      <img src="/img/btn-removed.svg" alt="sneakers"></img>
-    </div>
-
-    <div className="cartItem">
-      <img
-        width={70}
-        height={70}
-        src="/img/sneakers/1.jpg"
-        alt="sneakers"
-      ></img>
-      <div className="cartItem-info">
-        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-        <b>12 999 руб.</b>
-      </div>
-
-      <img src="/img/btn-removed.svg" alt="sneakers"></img>
-    </div>
-  </div>
-
-  <div className="final-pirce">
-    <ul>
-      <li>
-        <span>Итого</span>
-
-        <b>21 498 руб.</b>
-      </li>
-      <li>
-        <span>Налог 5%:</span>
-
-        <b>1074 руб.</b>
-      </li>
-    </ul>
-    <button className="greenButton">
-      Оформить заказ <img src="/img/arrow.svg" alt="arrow"></img>
-    </button>
-  </div>
-</div>;
