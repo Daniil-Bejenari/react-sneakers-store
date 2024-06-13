@@ -61,6 +61,15 @@ header {
       border: 1px solid #f2f2f2;
       border-radius: 8px;
       display: flex;
+      position: relative;
+      .search-clear {
+        position: absolute;
+        right: 10px;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        top: 9px;
+      }
 
       img {
         padding-left: 8px;
