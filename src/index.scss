@@ -49,7 +49,7 @@ header {
 
 .content {
   padding: 40px;
-  .conent-header {
+  .content-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -168,36 +168,68 @@ header {
       justify-content: space-between;
     }
   }
+}
+.greenButton {
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  position: relative;
+  margin-bottom: 50px;
+  &:hover {
+    background: lighten($color: #9dd558, $amount: 5%);
+  }
 
-  .greenButton {
-    width: 100%;
-    height: 55px;
-    background: #9dd558;
-    border-radius: 18px;
-    border: 0;
-    color: #ffffff;
+  &:active {
+    background: darken($color: #9dd558, $amount: 10%);
+  }
+  .right-arrow {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  &:hover {
+    .right-arrow {
+      transform: translateX(5px);
+    }
+  }
+  .left-arrow {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  &:hover {
+    .left-arrow {
+      transform: translateX(5px);
+    }
+  }
+}
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 26.63px;
+  }
+  p {
     font-size: 16px;
-    font-weight: 500px;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-    position: relative;
-    &:hover {
-      background: lighten($color: #9dd558, $amount: 5%);
-    }
-
-    &:active {
-      background: darken($color: #9dd558, $amount: 10%);
-    }
-    img {
-      position: absolute;
-      right: 30px;
-      top: 20px;
-      transition: transform 0.2s ease-in-out;
-    }
-    &:hover {
-      img {
-        transform: translateX(5px);
-      }
-    }
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+    opacity: 40%;
   }
 }
