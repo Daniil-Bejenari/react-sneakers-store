@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import styles from './CardStyle.scss';
 
-const Card = ({ id, name, price, imageUrl, onPlus, onFavorite }) => {
+const Card = ({
+  id,
+  name,
+  price,
+  imageUrl,
+  onPlus,
+  onFavorite,
+  isFavorite = false,
+}) => {
   const [isAdded, setIsAdded] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
 
   const onClickPlus = () => {
     setIsAdded(!isAdded);
@@ -11,8 +19,8 @@ const Card = ({ id, name, price, imageUrl, onPlus, onFavorite }) => {
   };
 
   const onClickFavorite = () => {
-    setIsFavorite(!isFavorite);
-    // onFavorite({ id, name, price, imageUrl });
+    setIsFavoriteState(!isFavoriteState);
+    onFavorite({ id, name, price, imageUrl });
   };
 
   return (
@@ -22,7 +30,9 @@ const Card = ({ id, name, price, imageUrl, onPlus, onFavorite }) => {
         className="favorite"
         width={32}
         height={32}
-        src={isFavorite ? `/img/heart-liked.svg` : `/img/heart-unliked.svg`}
+        src={
+          isFavoriteState ? `/img/heart-liked.svg` : `/img/heart-unliked.svg`
+        }
         alt="Favorite"
       />
       <img width={133} height={122} src={imageUrl} alt={name} />
@@ -30,7 +40,7 @@ const Card = ({ id, name, price, imageUrl, onPlus, onFavorite }) => {
       <div className="card-price">
         <div>
           <span>Цена</span>
-          <b>{price}лей.</b>
+          <b>{price} лей.</b>
         </div>
         <img
           onClick={onClickPlus}

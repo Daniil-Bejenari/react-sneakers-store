@@ -16,6 +16,14 @@ const Drawer = ({ onClickCloseCart, onClickRemoveItem, items = [] }) => {
             <img src="/img/cart-empty.svg" alt="empty" />
             <h3>Корзина пустая</h3>
             <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
+            <button className="greenButton ">
+              Вернуться назад{' '}
+              <img
+                className="left-arrow"
+                src="/img/arrow-left.svg"
+                alt="arrow"
+              ></img>
+            </button>
           </div>
         ) : (
           <>
