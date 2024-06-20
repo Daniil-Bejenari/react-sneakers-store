@@ -9,8 +9,9 @@ const Card = ({
   onPlus,
   onFavorite,
   isFavorite = false,
+  added = false,
 }) => {
-  const [isAdded, setIsAdded] = useState(false);
+  const [isAdded, setIsAdded] = useState(added);
   const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
 
   const onClickPlus = () => {

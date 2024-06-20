@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 
+const AppContext = React.createContext({});
+
 function App() {
   const [cartOpened, setCartOpened] = useState(false);
   const [searchValue, setSearchValue] = useState('');
@@ -20,9 +22,13 @@ function App() {
       return [...prev, product];
     });
   };
-
   const onAddToCart = (product) => {
-    setCartItems([...cartItems, product]);
+    setCartItems((prev) => {
+      if (prev.find((item) => item.id === product.id)) {
+        return prev.filter((item) => item.id !== product.id);
+      }
+      return [...prev, product];
+    });
   };
 
   const onClickRemoveItem = (id) => {
@@ -54,6 +60,7 @@ function App() {
           path="/"
           element={
             <Home
+              cartItems={cartItems}
               searchValue={searchValue}
               clearInput={clearInput}
               onChangeSearchInput={onChangeSearchInput}

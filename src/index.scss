@@ -233,3 +233,25 @@ header {
     opacity: 40%;
   }
 }
+
+.empty-favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .favorites {
+    width: 300px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+
+    text-align: center;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+
+    text-align: center;
+    opacity: 40%;
+  }
+}

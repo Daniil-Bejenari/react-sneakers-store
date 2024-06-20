@@ -7,6 +7,7 @@ const Home = ({
   onChangeSearchInput,
   onAddToCart,
   onFavorite,
+  cartItems,
 }) => {
   const [items, setItems] = useState([]);
 
@@ -57,6 +58,7 @@ const Home = ({
                 imageUrl={item.imageUrl}
                 onPlus={onAddToCart}
                 onFavorite={onFavorite}
+                added={cartItems.some((obj) => obj.id === item.id)}
               />
             ))
         ) : (
