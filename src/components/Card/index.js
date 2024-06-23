@@ -26,16 +26,18 @@ const Card = ({
 
   return (
     <div className="card">
-      <img
-        onClick={onClickFavorite}
-        className="favorite"
-        width={32}
-        height={32}
-        src={
-          isFavoriteState ? `/img/heart-liked.svg` : `/img/heart-unliked.svg`
-        }
-        alt="Favorite"
-      />
+      {onFavorite && (
+        <img
+          onClick={onClickFavorite}
+          className="favorite"
+          width={32}
+          height={32}
+          src={
+            isFavoriteState ? `/img/heart-liked.svg` : `/img/heart-unliked.svg`
+          }
+          alt="Favorite"
+        />
+      )}
       <img width={133} height={122} src={imageUrl} alt={name} />
       <p>{name}</p>
       <div className="card-price">
@@ -43,13 +45,17 @@ const Card = ({
           <span>Цена</span>
           <b>{price} лей.</b>
         </div>
-        <img
-          onClick={onClickPlus}
-          src={isAdded ? '/img/button-cheked.svg' : '/img/button-unckeked.svg'}
-          alt="Plus"
-          width={32}
-          height={32}
-        />
+        {onPlus && (
+          <img
+            onClick={onClickPlus}
+            src={
+              isAdded ? '/img/button-cheked.svg' : '/img/button-unckeked.svg'
+            }
+            alt="Plus"
+            width={32}
+            height={32}
+          />
+        )}
       </div>
     </div>
   );

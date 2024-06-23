@@ -5,6 +5,7 @@ import './index.scss';
 import React, { useState } from 'react';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
+import Profile from './pages/Profile';
 
 const AppContext = React.createContext({});
 
@@ -13,6 +14,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [cartItems, setCartItems] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   const onFavorite = (product) => {
     setFavorites((prev) => {
@@ -50,10 +52,13 @@ function App() {
           items={cartItems}
           onClickCloseCart={() => setCartOpened(false)}
           onClickRemoveItem={onClickRemoveItem}
+          setOrders={setOrders}
+          setCartItems={setCartItems}
+          setCartOpened={setCartOpened}
         />
       )}
 
-      <Header onClickCart={() => setCartOpened(true)} />
+      <Header onClickCart={() => setCartOpened(true)} items={cartItems} />
 
       <Routes>
         <Route
@@ -79,6 +84,7 @@ function App() {
             />
           }
         />
+        <Route path="/profile" element={<Profile orders={orders} />} />
       </Routes>
     </div>
   );

@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
 
-const Drawer = ({ onClickCloseCart, onClickRemoveItem, items = [] }) => {
+const Drawer = ({
+  onClickCloseCart,
+  onClickRemoveItem,
+  items = [],
+  setOrders,
+  setCartItems,
+  setCartOpened,
+}) => {
+  const totalPrice = items.reduce((sum, obj) => obj.price + sum, 0);
+  const discount = (totalPrice * 0.05).toFixed(2);
+  const finalPrice = (totalPrice - discount).toFixed(2);
+
   const [orderMade, setOrderMade] = useState(false);
   const [orderedItems, setOrderedItems] = useState([]);
 
-  const handleMakeOrder = () => {
-    setOrderedItems(items);
+  const handleOrderPlacement = () => {
+    setOrders(items);
+
+    setCartItems([]);
+
+    setCartOpened(false);
     setOrderMade(true);
-    console.log('Заказанные элементы:', items);
   };
 
   return (
@@ -28,7 +42,10 @@ const Drawer = ({ onClickCloseCart, onClickRemoveItem, items = [] }) => {
             <h3>Заказ оформлен!</h3>
 
             <p>Ваш заказ скоро будет передан курьерской доставке</p>
-            <button onClick={onClickCloseCart} className="greenButton">
+            <button
+              onClick={onClickCloseCart}
+              className="greenButton buttomOrder"
+            >
               Вернуться назад{' '}
               <img
                 className="left-arrow"
@@ -78,14 +95,18 @@ const Drawer = ({ onClickCloseCart, onClickRemoveItem, items = [] }) => {
               <ul>
                 <li>
                   <span>Итого</span>
-                  <b>21 498 лей.</b>
+                  <b>{totalPrice} лей.</b>
                 </li>
                 <li>
-                  <span>Налог 5%:</span>
-                  <b>1074 лей.</b>
+                  <span>Скида 5%:</span>
+                  <b>{discount} лей.</b>
+                </li>
+                <li>
+                  <span>К оплате:</span>
+                  <b>{finalPrice} лей.</b>
                 </li>
               </ul>
-              <button className="greenButton" onClick={handleMakeOrder}>
+              <button className="greenButton" onClick={handleOrderPlacement}>
                 Оформить заказ{' '}
                 <img className="right-arrow" src="/img/arrow.svg" alt="arrow" />
               </button>
