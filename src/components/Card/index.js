@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styles from './CardStyle.scss';
+import React, { useState, useEffect } from 'react';
+import styles from './style.scss';
 
 const Card = ({
   id,
@@ -13,6 +13,10 @@ const Card = ({
 }) => {
   const [isAdded, setIsAdded] = useState(added);
   const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
+
+  useEffect(() => {
+    setIsAdded(added);
+  }, [added]);
 
   const onClickPlus = () => {
     setIsAdded(!isAdded);

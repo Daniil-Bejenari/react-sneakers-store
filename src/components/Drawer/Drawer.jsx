@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './styles.scss';
 
 const Drawer = ({
   onClickCloseCart,
@@ -7,6 +8,7 @@ const Drawer = ({
   setOrders,
   setCartItems,
   setCartOpened,
+  resetCardAddedState,
 }) => {
   const totalPrice = items.reduce((sum, obj) => obj.price + sum, 0);
   const discount = (totalPrice * 0.05).toFixed(2);
@@ -22,6 +24,7 @@ const Drawer = ({
 
     setCartOpened(false);
     setOrderMade(true);
+    resetCardAddedState();
   };
 
   return (

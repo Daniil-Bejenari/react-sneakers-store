@@ -1,0 +1,150 @@
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.drawer {
+  position: absolute;
+  width: 385px;
+  height: 100%;
+  right: 0;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px 0px #0000001a;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.items {
+  flex: 1;
+  overflow: auto;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  h3 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+.greenButton {
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  position: relative;
+  margin-bottom: 50px;
+  &:hover {
+    background: lighten($color: #9dd558, $amount: 5%);
+  }
+
+  &:active {
+    background: darken($color: #9dd558, $amount: 10%);
+  }
+  .right-arrow {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  &:hover {
+    .right-arrow {
+      transform: translateX(5px);
+    }
+  }
+  .left-arrow {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  &:hover {
+    .left-arrow {
+      transform: translateX(5px);
+    }
+  }
+}
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 26.63px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+    opacity: 40%;
+  }
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+  img {
+    border-radius: 10px;
+  }
+
+  .cartItem-info {
+    margin-left: 20px;
+    flex-grow: 1;
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    b {
+      font-size: 16px;
+      color: #000;
+    }
+  }
+
+  img[src='/img/btn-removed.svg'] {
+    cursor: pointer;
+    margin-left: 20px;
+  }
+}
+
+.final-pirce {
+  ul {
+    padding: 0;
+    li {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

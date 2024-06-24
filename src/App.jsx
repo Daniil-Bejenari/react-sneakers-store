@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import Drawer from './components/Drawer';
-import Header from './components/Header';
+import Drawer from './components/Drawer/Drawer';
+import Header from './components/Header/Header';
 import './index.scss';
 import React, { useState } from 'react';
 import Home from './pages/Home';
-import Favorites from './pages/Favorites';
+import Favorites from './pages/Favorites/Favorites';
 import Profile from './pages/Profile';
 
 const AppContext = React.createContext({});
@@ -15,6 +15,11 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [orders, setOrders] = useState([]);
+  const resetCardAddedState = () => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) => ({ ...item, added: false })),
+    );
+  };
 
   const onFavorite = (product) => {
     setFavorites((prev) => {
@@ -55,6 +60,7 @@ function App() {
           setOrders={setOrders}
           setCartItems={setCartItems}
           setCartOpened={setCartOpened}
+          resetCardAddedState={resetCardAddedState}
         />
       )}
 

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import styles from './styles.scss';
 
 const Header = ({ onClickCart, items }) => {
   const totalPrice = items.reduce((sum, obj) => obj.price + sum, 0);
@@ -9,8 +10,8 @@ const Header = ({ onClickCart, items }) => {
         <div className="headerLeft">
           <img width={40} height={40} src="/img/logo.png" />
           <div className="headerInfo">
-            <h3>React Sneakrs</h3>
-            <p>Магазин лучший кросовок</p>
+            <h3>React Sneakers</h3>
+            <p>Магазин лучших кросовок</p>
           </div>
         </div>
       </Link>

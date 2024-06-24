@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from '../components/Card';
+import Card from '../../components/Card';
 import { useNavigate } from 'react-router';
+import styles from './styles.scss';
 
 const Favorites = ({ items, onFavorite, onAddToCart }) => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const Favorites = ({ items, onFavorite, onAddToCart }) => {
   return (
     <div className="content">
       <div className="content-header">
-        <h2>Мои Закладки</h2>
+        <h2>Мои закладки</h2>
       </div>
 
       <div className="sneakers">
