@@ -15,6 +15,8 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [genderFilter, setGenderFilter] = useState(null);
+
   const resetCardAddedState = () => {
     setCartItems((prevItems) =>
       prevItems.map((item) => ({ ...item, added: false })),
@@ -29,6 +31,7 @@ function App() {
       return [...prev, product];
     });
   };
+
   const onAddToCart = (product) => {
     setCartItems((prev) => {
       if (prev.find((item) => item.id === product.id)) {
@@ -77,6 +80,8 @@ function App() {
               onChangeSearchInput={onChangeSearchInput}
               onAddToCart={onAddToCart}
               onFavorite={onFavorite}
+              setGenderFilter={setGenderFilter}
+              genderFilter={genderFilter}
             />
           }
         />

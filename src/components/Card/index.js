@@ -31,18 +31,25 @@ const Card = ({
   return (
     <div className="card">
       {onFavorite && (
-        <img
-          onClick={onClickFavorite}
-          className="favorite"
-          width={32}
-          height={32}
-          src={
-            isFavoriteState ? `/img/heart-liked.svg` : `/img/heart-unliked.svg`
-          }
-          alt="Favorite"
-        />
+        <div className="favorite-wrapper">
+          <img
+            onClick={onClickFavorite}
+            className="favorite"
+            width={32}
+            height={32}
+            src={
+              isFavoriteState
+                ? `/img/heart-liked.svg`
+                : `/img/heart-unliked.svg`
+            }
+            alt="Favorite"
+          />
+        </div>
       )}
-      <img width={133} height={122} src={imageUrl} alt={name} />
+      <div className="card-img">
+        <img width={133} height={122} src={imageUrl} alt={name} />
+      </div>
+
       <p>{name}</p>
       <div className="card-price">
         <div>
@@ -58,6 +65,7 @@ const Card = ({
             alt="Plus"
             width={32}
             height={32}
+            className="add"
           />
         )}
       </div>
