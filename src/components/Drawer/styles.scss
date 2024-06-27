@@ -33,7 +33,7 @@
   h3 {
     margin: 0;
     font-size: 30px;
-    font-weight: 800;
+    font-weight: 600;
   }
   img {
     cursor: pointer;
@@ -138,13 +138,20 @@
     margin-left: 20px;
   }
 }
-
-.final-pirce {
-  ul {
-    padding: 0;
-    li {
-      display: flex;
-      justify-content: space-between;
+.total-price {
+  .price-container {
+    border: 1px solid #e0e0e0;
+    padding: 0px 10px 0px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    ul {
+      padding: 0;
+      li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        border-bottom: 2px dotted #cac6c6;
+      }
     }
   }
 }

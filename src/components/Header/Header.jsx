@@ -18,7 +18,12 @@ const Header = ({ onClickCart, items }) => {
 
       <ul className="headerRight">
         <li onClick={onClickCart}>
-          <img width={18} height={18} src="/img/cart.svg" />
+          <img
+            className="cart-img"
+            width={18}
+            height={18}
+            src="/img/cart.svg"
+          />
           <span>{totalPrice} лей</span>
         </li>
         <li>

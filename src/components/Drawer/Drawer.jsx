@@ -94,21 +94,24 @@ const Drawer = ({
                 </div>
               ))}
             </div>
-            <div className="final-price">
-              <ul>
-                <li>
-                  <span>Итого</span>
-                  <b>{totalPrice} лей.</b>
-                </li>
-                <li>
-                  <span>Скида 5%:</span>
-                  <b>{discount} лей.</b>
-                </li>
-                <li>
-                  <span>К оплате:</span>
-                  <b>{finalPrice} лей.</b>
-                </li>
-              </ul>
+            <div className="total-price">
+              <div className="price-container">
+                <ul>
+                  <li>
+                    <span>Итого</span>
+                    <b>{totalPrice} лей.</b>
+                  </li>
+                  <li>
+                    <span>Скида 5%:</span>
+                    <b>{discount} лей.</b>
+                  </li>
+                  <li>
+                    <span>К оплате:</span>
+                    <b>{finalPrice} лей.</b>
+                  </li>
+                </ul>
+              </div>
+
               <button className="greenButton" onClick={handleOrderPlacement}>
                 Оформить заказ{' '}
                 <img className="right-arrow" src="/img/arrow.svg" alt="arrow" />

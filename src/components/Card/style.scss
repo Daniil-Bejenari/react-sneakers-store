@@ -16,6 +16,7 @@
     border-radius: 12px;
     opacity: 0.7;
     background-color: rgb(0, 0, 0);
+    z-index: 1;
   }
   .add {
     border: 1px solid #cac6c6;
@@ -25,6 +26,11 @@
   .card-img {
     display: flex;
     justify-content: center;
+    transform: scale(1);
+    transition: transform 0.3 ease-in;
+    &:hover {
+      transform: scale(1.15);
+    }
   }
   p {
     font-weight: 600;
