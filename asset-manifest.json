@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Daniil-Bejenari/react-sneakers-store/static/css/main.b290dae7.css",
+    "main.js": "/Daniil-Bejenari/react-sneakers-store/static/js/main.8509ed26.js",
+    "index.html": "/Daniil-Bejenari/react-sneakers-store/index.html",
+    "main.b290dae7.css.map": "/Daniil-Bejenari/react-sneakers-store/static/css/main.b290dae7.css.map",
+    "main.8509ed26.js.map": "/Daniil-Bejenari/react-sneakers-store/static/js/main.8509ed26.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b290dae7.css",
+    "static/js/main.8509ed26.js"
+  ]
+}
